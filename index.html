@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MARKHOR Transaction Coordination | Contract-to-Close</title>
+  <meta name="description" content="MARKHOR TC keeps your deals moving from contract to close—on time, compliant, and stress-free—so you can focus on clients." />
+
+  <meta property="og:title" content="MARKHOR Transaction Coordination" />
+  <meta property="og:description" content="Close more. Stress less. Contract-to-close handled." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --gold-light:#F2B35B;
+      --gold:#D8913A;
+      --gold-dark:#8A5A2B;
+      --ink:#0A0A0A;
+      --muted:#A8ADB4;
+      --bg:#0B0C0D;
+      --card:#111214;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--gold-light);text-decoration:none} a:hover{color:var(--gold)}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(10,10,10,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #1f2937;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:40px;height:40px;border-radius:10px;object-fit:contain;background:#000}
+    .brand h1{font-size:18px;margin:0;letter-spacing:.2em;font-weight:800}
+    .cta{padding:10px 16px;border-radius:10px;background:var(--gold);color:#111;font-weight:700;border:1px solid #000}
+    .cta:hover{background:var(--gold-light)}
+    .hero{padding:84px 0;background:radial-gradient(600px 320px at 20% 0%, rgba(248,191,82,.18), transparent), radial-gradient(600px 320px at 80% 0%, rgba(216,145,58,.12), transparent)}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:#16181b;color:var(--gold-light);font-weight:700;font-size:12px;border:1px solid #26282c}
+    .hero h2{font-family:"Playfair Display",serif;font-weight:600;font-size:46px;line-height:1.15;margin:18px 0}
+    .hero p{font-size:18px;color:#d1d5db}
+    .actions{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:800;border:1px solid #222;box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(180deg, var(--gold-light), var(--gold));color:#111}
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.ghost{background:#0f1012;color:#fff}
+    .badgebar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 0 0}
+    .badge{display:flex;gap:8px;align-items:center;background:#15161a;padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid #26282c;color:#e5e7eb}
+    section{padding:56px 0}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #1f2937}
+    .illus{height:320px;border-radius:var(--radius);display:grid;place-items:center;overflow:hidden}
+    .illus-inner{width:100%;height:100%;background:
+      radial-gradient(120px 120px at 20% 30%, rgba(242,179,91,.15), transparent),
+      radial-gradient(140px 140px at 80% 30%, rgba(216,145,58,.12), transparent),
+      linear-gradient(180deg,#0a0a0a,#0f1012);
+      position:relative}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    h3{font-size:28px;margin:0 0 8px}
+    .sub{color:#c9cdd3;margin:0 0 22px}
+    .service{padding:22px}
+    .service h4{margin:0 0 6px}
+    .process .step{padding:18px 20px;border:1px solid #1f2937;border-radius:12px;background:#0f1012}
+    .pricing .tier{padding:24px}
+    .price{font-size:38px;font-weight:900;color:var(--gold-light)}
+    .faq details{border:1px solid #1f2937;border-radius:12px;background:#0f1012;padding:16px}
+    .faq details+details{margin-top:12px}
+    .faq summary{cursor:pointer;font-weight:800}
+    .contact form{display:grid;gap:12px}
+    .input{padding:12px 14px;border:1px solid #1f2937;border-radius:10px;background:#0f1012;color:#fff}
+    .input:focus{outline:2px solid rgba(242,179,91,.35);border-color:transparent}
+    footer{padding:36px 0;border-top:1px solid #1f2937;color:#c9cdd3;font-size:14px}
+    .small{font-size:12px;color:#c9cdd3}
+    @media (max-width: 880px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/icon-192.png" alt="MARKHOR logo" />
+        <h1>MARKHOR TC</h1>
+      </div>
+      <nav>
+        <a href="#contact" class="cta">Message Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Real Estate Transaction Coordination</span>
+        <h2>Close more. Stress less.<br/>We handle contract-to-close.</h2>
+        <p>✨ Hey Real Estate Agents! You already do so much — finding clients, showing homes, negotiating… Let us handle what comes next. At <strong>MARKHOR Transaction Coordination</strong>, we make sure every deal moves from contract to close — seamlessly.</p>
+        <div class="badgebar">
+          <span class="badge">💼 On-time deadlines</span>
+          <span class="badge">📞 Lender &amp; title updates</span>
+          <span class="badge">🗂️ Compliance &amp; docs</span>
+          <span class="badge">💬 Client communication</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://calendly.com/your-calendly/15min" target="_blank" rel="noopener">Book a 15-min Call</a>
+          <a class="btn ghost" href="#contact">Message Us</a>
+        </div>
+        <p class="small" style="margin-top:10px;">Fast onboarding • Simple pricing • Nationwide support</p>
+      </div>
+      <div class="card illus">
+        <div class="illus-inner"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h3>What we handle</h3>
+      <p class="sub">You focus on lead gen, showings, and negotiations—we run the back-office engine.</p>
+      <div class="grid-3">
+        <div class="card service">
+          <h4>Deadlines &amp; Milestones</h4>
+          <p>We build your timeline and track every contingency, inspection, and closing date. No slipped dates.</p>
+        </div>
+        <div class="card service">
+          <h4>Communication Hub</h4>
+          <p>We coordinate with clients, co-op agents, lenders, title/attorney, and vendors—clear, timely updates.</p>
+        </div>
+        <div class="card service">
+          <h4>Docs &amp; Compliance</h4>
+          <p>We gather, audit, and organize all files to brokerage standards—ready for audit and easy to find.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <h3>How it works</h3>
+      <p class="sub">Easy, transparent, and built for speed.</p>
+      <div class="grid-2">
+        <div class="step card">
+          <strong>1) Kickoff</strong>
+          <p>Send the executed contract or loop us in when you’re pending. We set the timeline and contact roster.</p>
+        </div>
+        <div class="step card">
+          <strong>2) Manage &amp; Update</strong>
+          <p>We track deadlines, schedule inspections, and share proactive updates so nothing stalls.</p>
+        </div>
+        <div class="step card">
+          <strong>3) Compliance</strong>
+          <p>We collect and organize docs in your folder or TC platform to meet brokerage/MLS standards.</p>
+        </div>
+        <div class="step card">
+          <strong>4) Clear to Close</strong>
+          <p>Coordinate with title/attorney and lender, prepare the file for closing, and celebrate the win. 🎉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h3>Simple pricing</h3>
+      <p class="sub">Flat fees. No surprises. Pay per file.</p>
+      <div class="grid-3">
+        <div class="card tier">
+          <h4>Contract-to-Close</h4>
+          <p class="price">$350</p>
+          <ul>
+            <li>One residential transaction</li>
+            <li>Timeline &amp; deadline tracking</li>
+            <li>All parties communication</li>
+            <li>Doc collection &amp; audit</li>
+            <li>Closing coordination</li>
+          </ul>
+          <a class="btn primary" href="https://calendly.com/your-calendly/15min" target="_blank" rel="noopener">Get Started</a>
+        </div>
+        <div class="card tier">
+          <h4>Listing Launch</h4>
+          <p class="price">$175</p>
+          <ul>
+            <li>Docs &amp; disclosures setup</li>
+            <li>Broker/MLS compliance prep</li>
+            <li>Offer intake workflow</li>
+          </ul>
+          <a class="btn ghost" href="#contact">Ask About This</a>
+        </div>
+        <div class="card tier">
+          <h4>Teams &amp; Brokerages</h4>
+          <p class="price">Custom</p>
+          <ul>
+            <li>Volume pricing</li>
+            <li>Custom SOPs &amp; templates</li>
+            <li>Platform &amp; CRM integration</li>
+          </ul>
+          <a class="btn ghost" href="#contact">Request a Quote</a>
+        </div>
+      </div>
+      <p class="small" style="margin-top:10px;">* Pricing is sample—adjust to your market. Add rush fees or add-ons as needed.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container card" style="padding:28px;display:grid;gap:8px;">
+      <div class="eyebrow">What agents say</div>
+      <blockquote style="margin:0;font-size:18px;color:#fff;">
+        “MARKHOR keeps my files clean and my clients informed. I’ve doubled my pipeline without burning out.”
+      </blockquote>
+      <span class="small">— Top Producer, eXp Realty</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>About MARKHOR TC</h3>
+      <div class="grid-2">
+        <div class="card" style="padding:22px;">
+          <p>✨ Hey Real Estate Agents!</p>
+          <p>You already do so much — finding clients, showing homes, negotiating… <strong>Let us handle what comes next.</strong> 🏡</p>
+          <p>At <strong>MARKHOR Transaction Coordination</strong>, we make sure every deal moves from contract to close — seamlessly.</p>
+          <ul>
+            <li>💼 We stay on top of every deadline</li>
+            <li>📞 Communicate with lenders, title, and clients</li>
+            <li>🗂️ Keep your files organized and compliant</li>
+            <li>💬 So you can focus on what actually grows your business</li>
+          </ul>
+          <p>Let’s make your closings smoother, your clients happier, and your time more valuable.</p>
+          <p>📩 Message us today to see how MARKHOR can help you close more — and stress less.</p>
+          <div class="small">#MarkhorTC #RealEstateSupport #TransactionCoordinator #ContractToClose #RealEstateAgents</div>
+        </div>
+        <div class="card" style="padding:22px;">
+          <h4>Brokerages &amp; platforms we work with</h4>
+          <p class="small">eXp • Keller Williams • Compass • RE/MAX • Coldwell • Side • Independent brokerages<br>Dotloop • Skyslope • Brokermint • Follow Up Boss • Trello • Google Drive</p>
+          <h4 style="margin-top:18px;">Turnaround &amp; availability</h4>
+          <p>Business hours M–F with proactive updates and same-day onboarding for new agents.</p>
+          <h4 style="margin-top:18px;">Coverage</h4>
+          <p>Nationwide (U.S.). Ask about local vendor lists for your market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <h3>FAQ</h3>
+      <details>
+        <summary>Do you communicate directly with my clients?</summary>
+        <p>Yes—cc’ing you and aligning with your voice and preferences.</p>
+      </details>
+      <details>
+        <summary>What if a timeline shifts?</summary>
+        <p>We adjust milestones, notify all parties, and re-confirm next steps promptly.</p>
+      </details>
+      <details>
+        <summary>How do you keep files compliant?</summary>
+        <p>We use your brokerage standards and platform checklists; every doc is requested, named, and filed properly.</p>
+      </details>
+      <details>
+        <summary>Can you support teams?</summary>
+        <p>Absolutely. We create SOPs, templates, and reporting tailored to teams and brokerages.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h3>Message us</h3>
+      <p class="sub">Tell us about your transactions and timeline. We’ll reply quickly with next steps.</p>
+      <div class="card" style="padding:22px;">
+        <form id="contactForm" action="https://formspree.io/f/your-endpoint" method="POST">
+          <input class="input" type="text" name="name" placeholder="Your name" required />
+          <input class="input" type="email" name="email" placeholder="Your email" required />
+          <input class="input" type="text" name="brokerage" placeholder="Brokerage / Team (optional)" />
+          <textarea class="input" name="message" rows="5" placeholder="What can we help with? Listing launch, contract-to-close, team support…" required></textarea>
+          <button class="btn primary" type="submit">Send Message</button>
+          <p id="formMsg" class="small" role="status" aria-live="polite" style="margin:6px 0 0;"></p>
+        </form>
+        <p class="small" style="margin-top:12px;">Prefer email? <a href="mailto:hello@your-domain.com">hello@your-domain.com</a> • Or book a call above.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div>© <span id="year"></span> MARKHOR Transaction Coordination</div>
+      <div class="small">
+        <a href="#faq">FAQ</a> ·
+        <a href="#pricing">Pricing</a> ·
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      msg.textContent = "Sending…";
+      const data = new FormData(form);
+      try{
+        const res = await fetch(form.action, { method: "POST", body: data, headers: { "Accept":"application/json" } });
+        if(res.ok){ msg.textContent = "Thanks! We’ll get back to you shortly."; form.reset(); }
+        else{ msg.textContent = "Hmm, something went wrong. Please email hello@your-domain.com."; }
+      }catch(err){ msg.textContent = "Network issue—please try again or email us directly."; }
+    });
+  </script>
+</body>
+</html>
